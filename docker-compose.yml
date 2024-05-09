@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  fingerprint-api:
+    build: .
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./fingerprints:/app/fingerprints
+    environment:
+      - SECRET_KEY=dev
+    command: >
+      sh -c "pip install -r requirements.txt && python app.py"
